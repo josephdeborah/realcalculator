@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+   <div class="wrapper  ">
+    <div><input type="text" name="display" id="" 
+    ></div>
+    <div>
+        <button onclick="display.value+=7 ; ">7</button>
+        <button onclick="display.value+=8 ;">8</button>
+        <button onclick="display.value+=9 ;">9</button>
+        <button onclick="display.value=display.value.slice(0,-1)" class="operator">Del</button>
+        <button onclick="display.value='' " class="operator">Ac</button>
+    </div>
+    <div>
+        <button onclick="display.value+=4;  ">4</button>
+        <button onclick="display.value+=5;  ">5</button>
+        <button onclick="display.value+=6;  ">6</button>
+        <button onclick="display.value +=' * '; " class="operator">*</button>
+        <button onclick="display.value+='/ '; " class="operator">/</button>
+    </div>
+    <div>
+        <button onclick="display.value+=1;  ">1</button>
+        <button onclick="display.value+=2;  ">2</button>
+        <button onclick="display.value+=3;  ">3</button>
+        <button onclick="display.value+='+ ';  " class="operator">+</button>
+        <button onclick="display.value+='- ';  "  class="operator"> - </button>
+    </div>
+
+    <div>
+        <button onclick=" save() " class="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+            <path d="M11 2H9v3h2z"/>
+            <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+          </svg></button>
+        <button onclick="display.value+=0  ;">0</button>
+        <button onclick="display.value+='. ' ;">.</button>
+        <button onclick="display.value+='00' ; ">00</button>
+        <button onclick="error3()" class="operator">=</button>
+    </div>
+
+
+   </div> 
+   <script>
+    
+
+let display = document.querySelector("input")
+let display2=display.value
+console.log(display2);
+// let history= JSON.parse(localStorage.getItem('history'));
+// history.push(display.value)
+
+// console.log(history);
+
+
+function error3(){
+    try{
+        if(isNaN(display.value) || display.value === "+" || display.value === "-" || display.value === "*" || display.value === "/"){
+            display.value=eval(display.value)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+    }catch(err){
+        display.value="syntax error"
+    }
+    
+}
+
+console.log(localStorage.getItem("history"));
+
+localStorage.setItem('history',display.value)
+
+
+
+ 
+  
+
+
+
+
+
+
+   
+   </script>
+</body>
+</html> 
